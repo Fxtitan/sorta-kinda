@@ -23,16 +23,23 @@ const firstNameIsFirstAlphabetically = (name1,name2) => {
 if(name1 > name2){ //huh?
 return 1
 } else if(name1 < name2) {
-  return -1
+return -1
 }
 return 0
 }
 
-const firstLastNameIsFirstAlphabetically = (lastName1, lastName2) => {
-  if (lastName2 > lastName1){ //slice method or buildstring with loop //still dont understand slice really
-return 1
+const firstLastNameIsFirstAlphabetically = (fullName1, fullName2) => {
+  const firstLastName = fullName1.split(" ")[1];
+  const secondLastName = fullName2.split(" ")[1];
+  console.log(secondLastName);
+  if (firstLastName > secondLastName){
+  return 1
+  } else if(firstLastName < secondLastName) {
+  return -1
   }
-}
+  return 0
+  }             
+
 
 const trueIsFirst = (boolean1,boolean2) => {
   if (boolean1 > boolean2){
@@ -65,7 +72,7 @@ const sortByNameAscending = (names) => {
 }
 
 const sortByLastNameAscending = (lastNames) => {
-  
+  return lastNames.slice().sort(firstLastNameIsFirstAlphabetically)
 }
 
 
@@ -130,3 +137,4 @@ module.exports = {
   sortByLastNameAscending,
   truesFirst,
 }
+
